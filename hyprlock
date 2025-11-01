@@ -1,0 +1,11 @@
+# PAM configuration file for hyprlock
+# the 'login' configuration file (see /etc/pam.d/login)
+# auth sufficient pam_exec.so /opt/my_face_auth/test_pam.sh
+auth sufficient pam_unix.so try_first_pass
+
+auth sufficient pam_exec.so /opt/my_face_auth/.venv/bin/python /opt/my_face_auth/check_face.py
+
+auth required pam_unix.so
+
+auth        include     login
+
